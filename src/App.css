@@ -23,11 +23,13 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formStyle{
+  display: flex;
+  flex-direction: column;
+}
+
+.formField{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
 }

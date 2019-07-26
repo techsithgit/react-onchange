@@ -1,23 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "./App.css";
+// controlled Inputs
+// controlled vs uncontrolled
 function App() {
+  const [name, setName] = useState("");
+  const [income, setIncome] = useState("");
+
+  function handleSubmit() {
+    console.log(name, income);
+  }
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+  function handleIncomeChange(e) {
+    setIncome(e.target.value);
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <form onSubmit={handleSubmit} className="formStyle" >
+          <div className="formField">
+            <span>Name:</span>
+            <input type="text" value={name} onChange={handleNameChange} />
+          </div>
+          <div className="formField">
+            <span>Income:</span>
+            <select value={income} onChange={handleIncomeChange}>
+              <option value="high">High</option>
+              <option value="mid">Mid</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
       </header>
     </div>
   );
